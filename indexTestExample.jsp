@@ -15,25 +15,30 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
-    </body>
-    
-        <% database x = new database();%>
-        <% String z = x.InsertRecords("Joe33",23,"walsall",2000);%>
-        <p><%=z%></p>
+        <h1>JSP Code Test Page</h1>
+        <!--Insert Record Test-->
+            <% database dbObj = new database();%>
+            <% String outputInsertResult = dbObj.InsertRecords("Joe Trobi",23,"Walsall",2000);%>
+            <p><%=outputInsertResult%></p>
+        <!--END-->
         
-        <% ArrayList<customer> Records = new ArrayList<customer>();%>
-        <% Records = x.ReturnRecords();%>
-         <%       for (Iterator<customer> i = Records.iterator(); i.hasNext();) {
-          customer xx = i.next();
-          out.println("<p>" + xx.name +"</p>");
-       }%>
-
-        <% String zxx = x.DeleteRecord(222); %>
-        <p><%=zxx%></p>
-
-        <% String zxx2 = x.UpdateRecord(6,"James Smith",22,"Wally Walsall",10); %>
-        <p><%=zxx2%></p>
+        <!--Return Records Test-->
+            <% ArrayList<customer> RecordsFound = new ArrayList<customer>();%>
+            <% RecordsFound = dbObj.ReturnRecords();%>
+            <% for (Iterator<customer> i = RecordsFound.iterator(); i.hasNext();) {
+                customer item = i.next();
+                out.println("<p>" + item.name +"</p>");
+            }%>
+        <!--END-->
         
-         
+        <!--Delete Record Test-->
+            <% String outputDeleteResult = dbObj.DeleteRecord(1); %>
+            <p><%=outputDeleteResult%></p>
+        <!--END-->
+        
+        <!--Update Record Test-->
+            <% String outputUpdateResult = dbObj.UpdateRecord(6,"James Smith",10,"Walsall World",10); %>
+            <p><%=outputUpdateResult%></p>
+        <!--END-->
+     </body>
 </html>
