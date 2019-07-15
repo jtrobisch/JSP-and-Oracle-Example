@@ -25,7 +25,7 @@ public class database {
             statement.setDouble(4, Salary);
             int affectedRows = statement.executeUpdate();
             con.close();
-            return affectedRows + " Row(s) inserted sucessfully.";
+            return affectedRows + " Row(s) inserted successfully.";
         }catch(Exception e){ 
            return e.getMessage();
         } 
@@ -63,7 +63,7 @@ public class database {
             int affectedRows = statement.executeUpdate();
             con.close();
             if(affectedRows > 0){
-                return affectedRows + " Record(s) deleted sucessfully.";
+                return affectedRows + " Record(s) deleted successfully.";
             }else{
                  return "No record(s) found to delete.";
             }
@@ -86,7 +86,7 @@ public class database {
             int affectedRows = statement.executeUpdate();
             con.close();
             if(affectedRows > 0){
-                return affectedRows + " Record(s) updated sucessfully.";
+                return affectedRows + " Record(s) updated successfully.";
             }else{
                 return "No record(s) found to update.";
             }
